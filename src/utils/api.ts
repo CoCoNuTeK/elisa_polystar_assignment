@@ -1,25 +1,26 @@
 import axios from "axios";
+import { User } from "@/types/user";
 
-// API Endpoint
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
-// Type for User Data
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  phone: string;
-  website: string;
-}
-
-// Function to fetch users
 export const fetchUsers = async (): Promise<User[]> => {
   try {
-    const response = await axios.get(API_URL);
-    return response.data;
+    const response = await axios.get<User[]>(API_URL);
+
+    // Manually ensure only defined fields are stored
+    const filteredUsers: User[] = response.data.map(user => ({
+      id: user.id,
+      name: user.name,
+      username: user.username,
+      email: user.email,
+      phone: user.phone,
+      website: user.website
+    }));
+
+    console.log("✅ Fetched and filtered attributes:", filteredUsers);
+    return filteredUsers;
   } catch (error) {
-    console.error("Error fetching users:", error);
+    console.error("❌ Error fetching users:", error);
     return [];
   }
 };

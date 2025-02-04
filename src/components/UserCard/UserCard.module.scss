@@ -1,0 +1,48 @@
+@use "@/styles/variables" as *;
+
+.userCard {
+  border: 1px solid #ccc;
+  padding: $spacing-medium;
+  margin: $spacing-small;
+  border-radius: $border-radius;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 300px;
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $spacing-small;
+  }
+
+  .editButton {
+    padding: $spacing-small;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: $font-medium;
+    background-color: $primary-color;
+    color: white;
+  }
+
+  .saveButton {
+    padding: $spacing-small;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: $font-medium;
+    background-color: green;
+    color: white;
+  }
+
+  .deleteButton {
+    padding: $spacing-small;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    font-size: $font-medium;
+    background-color: red;
+    color: white;
+  }
+}

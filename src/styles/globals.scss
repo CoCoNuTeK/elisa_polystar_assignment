@@ -1,0 +1,30 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  padding: $spacing-medium;
+}
+
+// GLOBAL CONTAINER FOR LAYOUT
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: $spacing-medium;
+  text-align: center; 
+}
+
+// GLOBAL TITLE STYLE
+.title {
+  font-size: $font-large;
+  font-weight: bold;
+  margin-bottom: $spacing-large;
+}

@@ -1,40 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Assignment: React Developer - User Management App
 
-## Getting Started
+## Overview
+This is a **Next.js** application built using **TypeScript**, **Redux Toolkit**, and **SCSS**. It allows users to **view, add, update, and delete users** fetched from a public API.
 
-First, run the development server:
+## ⏳ Development Time
+**Total Time:** ~2-3 hours
+This project was developed with a focus on demonstrating state management, component structuring, and styling while maintaining a clean and modular approach.
 
+---
+
+## 🚀 Getting Started
+### **1️⃣ Clone the Repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repo-url>
+cd <repo-folder>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2️⃣ Install Dependencies**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### **3️⃣ Run the Development Server**
+```bash
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser to view the application.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔧 Environment & Versions
+This project was developed and tested with the following versions:
 
-## Learn More
+- **Node.js:** v20.17.0
+- **npm:** 10.8.2
+- **npx:** 10.8.2
+- **Next.js:** 15.1.6
+- **React:** 19.0.0
 
-To learn more about Next.js, take a look at the following resources:
+Ensure you have these versions or compatible ones before running the project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📡 API & Data Structure
+This application fetches user data from the public API: **[JSONPlaceholder Users](https://jsonplaceholder.typicode.com/users)**.
 
-## Deploy on Vercel
+Each user object in the API contains multiple fields, but we only use the following:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```json
+{
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org"
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+---
+
+## 🏗️ Features Implemented
+### ✅ **Setup & Initialization**
+- Created a **Next.js** application with TypeScript.
+- Integrated **SCSS** for styling.
+- Configured **Redux Toolkit** for state management.
+
+### ✅ **API Integration**
+- Used **Axios** to fetch users from **JSONPlaceholder API**.
+- Displayed the users in a responsive card layout.
+
+### ✅ **CRUD Operations**
+- **Create:** Users can be added via the `UserForm` component.
+- **Read:** Users are displayed in `UserList` using Redux state.
+- **Update:** Users can be edited inline and updated in Redux state.
+- **Delete:** Users can be removed from Redux state via the `UserCard` component.
+
+### ✅ **State Management**
+- Managed the application state using **Redux Toolkit**.
+- Implemented actions for adding, updating, and deleting users.
+
+### ✅ **Responsive Design**
+- Styled using **SCSS modules**.
+- Applied **flexbox and grid layouts** for responsiveness.
+
+---
+
+## 🗂️ Project Structure
+```
+src
+├── components
+│   ├── UserCard       # Displays individual user details with Edit/Delete functionality
+│   │   ├── UserCard.tsx
+│   │   ├── UserCard.module.scss
+│   ├── UserForm       # Allows adding a new user
+│   │   ├── UserForm.tsx
+│   │   ├── UserForm.module.scss
+│   ├── UserList       # Renders a list of users from Redux state
+│   │   ├── UserList.tsx
+│   │   ├── UserList.module.scss
+│
+├── pages
+│   ├── index.tsx      # Main entry page, renders UserList & UserForm
+│   ├── _app.tsx       # Next.js root component, wraps Redux Provider
+│   ├── _document.tsx  # Custom HTML structure
+│
+├── store
+│   ├── store.ts       # Configures Redux store
+│   ├── slices
+│   │   ├── userSlice.ts  # Redux logic for user state (Add, Update, Delete)
+│
+├── styles
+│   ├── globals.scss   # Global styles (resets, layout, typography)
+│   ├── _mixins.scss   # SCSS mixins for reusable styles
+│   ├── _variables.scss # Global SCSS variables (colors, spacing)
+│
+├── types
+│   ├── user.ts        # Type definitions for the User model
+│
+├── utils
+│   ├── api.ts         # Axios API call for fetching users
+```
+
+---
+
+## ℹ️ Additional Notes
+- **SCSS modules** are used for component-scoped styling.
+- **Global styles** (`globals.scss`) manage layout and typography.
+- **Basic validation** (e.g., required name/email) is implemented.
+- **More advanced input validation** (like regex for emails) was omitted to prioritize quick functionality testing.
+
+---

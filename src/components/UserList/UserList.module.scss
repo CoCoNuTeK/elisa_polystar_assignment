@@ -1,0 +1,9 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.userList {
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: $spacing-medium; 
+  padding: $spacing-medium;
+}
